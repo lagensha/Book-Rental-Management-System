@@ -1,4 +1,21 @@
 package edu.icet.ecom.repository.impl;
 
-public class AdminRepositoryImpl {
+import edu.icet.ecom.dto.LoginPageDTO;
+import edu.icet.ecom.service.AdminService;
+
+public class AdminRepositoryImpl implements AdminService {
+    @Override
+    public void addAdmin(LoginPageDTO loginPageDTO) {
+
+    }
+
+    @Override
+    public void UpdateAdmin(String username, String password, String email, String id) {
+
+    }
+
+    @Override
+    public void deleteAdmin(String id) {
+
+    }
 }
