@@ -2,12 +2,17 @@ package edu.icet.ecom.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdminController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AdminController implements Initializable {
 
     @FXML
     private Button btnCreate;
@@ -68,4 +73,16 @@ public class AdminController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+
+    }
+
+    public void loadTable() {
+        tblAdminTable.setItems(null);
+    }
 }
