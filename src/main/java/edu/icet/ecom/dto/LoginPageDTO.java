@@ -9,8 +9,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginPageDTO {
+    private String id;
     private String username;
     private String password;
-    private String role;
     private String email;
 }
