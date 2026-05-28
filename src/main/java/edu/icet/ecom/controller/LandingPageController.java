@@ -29,7 +29,12 @@ public class LandingPageController {
 
     @FXML
     void btnSignInOnAction(ActionEvent event) {
-
+        try {
+            stage.setScene(FXMLLoader.load(getClass().getResource("/view/SignInPage.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
     }
 
 }
