@@ -1,13 +1,18 @@
 package edu.icet.ecom.controller;
 
+import edu.icet.ecom.service.impl.UserServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class UserController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class UserController implements Initializable {
 
     @FXML
     private Button btnCreate;
@@ -65,6 +70,11 @@ public class UserController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
