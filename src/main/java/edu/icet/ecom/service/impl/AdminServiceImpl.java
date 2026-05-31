@@ -50,6 +50,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void deleteAdmin(String id) {
-
+        try {
+            adminRepository.deleteAdmin(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
