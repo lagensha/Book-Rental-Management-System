@@ -40,7 +40,10 @@ public class AdminRepositoryImpl implements AdminService {
     }
 
     @Override
-    public void deleteAdmin(String id) {
-
+    public void deleteAdmin(String id) throws SQLException {
+        Connection connection= DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM Admin WHERE Id=?");
+        preparedStatement.setObject(1,id);
+        preparedStatement.executeUpdate();
     }
 }
