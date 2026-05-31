@@ -78,9 +78,9 @@ public class AdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("username"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("password"));
             loadTable();
        tblAdminTable.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldVariable, t1) -> {
             if (t1 != null) {
