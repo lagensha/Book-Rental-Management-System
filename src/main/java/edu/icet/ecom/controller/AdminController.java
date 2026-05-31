@@ -15,8 +15,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-         AdminServiceImpl adminService= new AdminServiceImpl();
-         LoginPageDTO loginPageDTO = new LoginPageDTO();
+
+    AdminServiceImpl adminService = new AdminServiceImpl();
+    LoginPageDTO loginPageDTO = new LoginPageDTO();
     @FXML
     private Button btnCreate;
 
@@ -39,7 +40,7 @@ public class AdminController implements Initializable {
     private TableColumn<?, ?> colName;
 
     @FXML
-    private TableColumn<?, ?> colPhoneNumber;
+    private TableColumn colPassword;
 
     @FXML
     private TableView<LoginPageDTO> tblAdminTable;
@@ -58,10 +59,10 @@ public class AdminController implements Initializable {
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
-        String id=txtId.getText();
-        String name=txtName.getText();
-        String email=txtEmail.getText();
-        String password=txtPassword.getText();
+        String id = txtId.getText();
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        String password = txtPassword.getText();
 
 
         LoginPageDTO loginPageDTO = new LoginPageDTO(id, name, email, password);
@@ -77,19 +78,19 @@ public class AdminController implements Initializable {
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
-            restTable();
+        restTable();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String id=txtId.getText();
-        String name=txtName.getText();
-        String email=txtEmail.getText();
-        String password=txtPassword.getText();
+        String id = txtId.getText();
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        String password = txtPassword.getText();
 
 
-        LoginPageDTO loginPageDTO = new LoginPageDTO(id, name, email, password);
-        adminService.addAdmin(loginPageDTO);
+        LoginPageDTO loginPageDTO = new LoginPageDTO(name, email, password, id);
+        adminService.UpdateAdmin(name, password, email, id);
         loadTable();
         restTable();
     }
@@ -98,7 +99,8 @@ public class AdminController implements Initializable {
     public void loadTable() {
         tblAdminTable.setItems(adminService.getAllAdmins());
     }
-    public void restTable(){
+
+    public void restTable() {
         txtId.clear();
         txtEmail.clear();
         txtName.clear();
@@ -109,15 +111,15 @@ public class AdminController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("username"));
+        colPassword.setCellValueFactory(new PropertyValueFactory<>("password"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("password"));
         loadTable();
         tblAdminTable.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldVariable, t1) -> {
             if (t1 != null) {
-               txtId.setText(t1.getId());
-               txtName.setText(t1.getUsername());
-                txtEmail.setText(t1.getEmail());
+                txtId.setText(t1.getId());
+                txtName.setText(t1.getUsername());
                 txtPassword.setText(t1.getPassword());
+                txtEmail.setText(t1.getEmail());
             }
         }));
     }

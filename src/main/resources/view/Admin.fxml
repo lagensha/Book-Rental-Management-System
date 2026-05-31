@@ -30,7 +30,7 @@
                   <TableColumn fx:id="colId" prefWidth="97.5" text="Admin Id" />
                   <TableColumn fx:id="colName" prefWidth="134.5" text="Name" />
                   <TableColumn fx:id="colEmail" prefWidth="216.5" text="Email" />
-                  <TableColumn fx:id="colPhoneNumber" prefWidth="134.5" text="Password" />
+                  <TableColumn fx:id="colPassword" prefWidth="134.5" text="Password" />
                </columns>
             </TableView>
          </children>
