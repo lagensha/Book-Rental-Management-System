@@ -29,8 +29,14 @@ public class AdminRepositoryImpl implements AdminService {
     }
 
     @Override
-    public void UpdateAdmin(String username, String password, String email, String id) {
-
+    public void UpdateAdmin(String username, String password, String email, String id) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Admin SET Username=?, Email=?,Password=? WHERE Id=?");
+        preparedStatement.setObject(1,username);
+        preparedStatement.setObject(2,email);
+        preparedStatement.setObject(3,password);
+        preparedStatement.setObject(4,id);
+        preparedStatement.executeUpdate();
     }
 
     @Override
