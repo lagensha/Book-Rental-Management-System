@@ -41,7 +41,11 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void UpdateAdmin(String username, String password, String email, String id) {
-
+        try {
+            adminRepository.UpdateAdmin(username,email,password,id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
