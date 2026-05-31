@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-        AdminServiceImpl adminService = new AdminServiceImpl();
+        private AdminServiceImpl adminService= new AdminServiceImpl();
     @FXML
     private Button btnCreate;
 
@@ -53,7 +53,7 @@ public class AdminController implements Initializable {
     private TextField txtName;
 
     @FXML
-    private TextField txtPhoneNumber;
+    private TextField txtPassword;
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
@@ -67,12 +67,23 @@ public class AdminController implements Initializable {
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
-
+            restTable();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
 
+    }
+
+
+    public void loadTable() {
+        tblAdminTable.setItems(adminService.getAllAdmins());
+    }
+    public void restTable(){
+        txtId.clear();
+        txtEmail.clear();
+        txtName.clear();
+        txtPassword.clear();
     }
 
     @Override
@@ -81,19 +92,14 @@ public class AdminController implements Initializable {
         colName.setCellValueFactory(new PropertyValueFactory<>("username"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("password"));
-            loadTable();
-       tblAdminTable.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldVariable, t1) -> {
+        loadTable();
+        tblAdminTable.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldVariable, t1) -> {
             if (t1 != null) {
-                txtId.setText(t1.getId());
-                txtName.setText(t1.getUsername());
-                txtEmail.setText(t1.getPassword());
-                txtPhoneNumber.setText(t1.getEmail());
+               txtId.setText(t1.getId());
+               txtName.setText(t1.getUsername());
+                txtEmail.setText(t1.getEmail());
+                txtPassword.setText(t1.getPassword());
             }
-       }));
-
-    }
-
-    public void loadTable() {
-        tblAdminTable.setItems(adminService.getAllAdmins());
+        }));
     }
 }
