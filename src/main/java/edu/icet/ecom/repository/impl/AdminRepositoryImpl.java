@@ -17,7 +17,14 @@ public class AdminRepositoryImpl implements AdminService {
         }
 
     @Override
-    public void addAdmin(LoginPageDTO loginPageDTO) {
+    public void addAdmin(LoginPageDTO loginPageDTO) throws SQLException {
+        Connection connection= DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Admin VALUES (?,?,?,?)");
+        preparedStatement.setObject(1,loginPageDTO.getId());
+        preparedStatement.setObject(2,loginPageDTO.getUsername());
+        preparedStatement.setObject(3,loginPageDTO.getPassword());
+        preparedStatement.setObject(4,loginPageDTO.getEmail());
+        preparedStatement.executeUpdate();
 
     }
 
