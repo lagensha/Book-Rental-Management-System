@@ -15,7 +15,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
-        private AdminServiceImpl adminService= new AdminServiceImpl();
+         AdminServiceImpl adminService= new AdminServiceImpl();
+         LoginPageDTO loginPageDTO = new LoginPageDTO();
     @FXML
     private Button btnCreate;
 
@@ -57,7 +58,16 @@ public class AdminController implements Initializable {
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
+        String id=txtId.getText();
+        String name=txtName.getText();
+        String email=txtEmail.getText();
+        String password=txtPassword.getText();
 
+
+        LoginPageDTO loginPageDTO = new LoginPageDTO(id, name, email, password);
+        adminService.addAdmin(loginPageDTO);
+        loadTable();
+        restTable();
     }
 
     @FXML

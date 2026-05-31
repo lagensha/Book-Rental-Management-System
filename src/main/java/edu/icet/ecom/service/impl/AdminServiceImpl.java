@@ -32,7 +32,11 @@ public class AdminServiceImpl implements AdminService {
  }
     @Override
     public void addAdmin(LoginPageDTO loginPageDTO) {
-
+        try {
+            adminRepository.addAdmin(loginPageDTO);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
