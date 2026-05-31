@@ -82,7 +82,16 @@ public class AdminController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        String id=txtId.getText();
+        String name=txtName.getText();
+        String email=txtEmail.getText();
+        String password=txtPassword.getText();
 
+
+        LoginPageDTO loginPageDTO = new LoginPageDTO(id, name, email, password);
+        adminService.addAdmin(loginPageDTO);
+        loadTable();
+        restTable();
     }
 
 
