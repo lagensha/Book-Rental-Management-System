@@ -73,7 +73,10 @@ public class AdminController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        String id = txtId.getText();
+        adminService.deleteAdmin(id);
+        loadTable();
+        restTable();
     }
 
     @FXML
