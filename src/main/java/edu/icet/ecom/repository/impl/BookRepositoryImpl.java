@@ -13,8 +13,15 @@ import java.sql.SQLException;
 
 public class BookRepositoryImpl implements BookRepository {
     @Override
-    public void addBook(BookDTO bookDTO) {
-
+    public void addBook(BookDTO bookDTO) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO Book(id,title, author, category, quantity) VALUES (?,?,?,?,?)");
+        preparedStatement.setObject(1,bookDTO.getId());
+        preparedStatement.setObject(2,bookDTO.getTitle());
+        preparedStatement.setObject(3,bookDTO.getAuthor());
+        preparedStatement.setObject(4,bookDTO.getCategory());
+        preparedStatement.setObject(5,bookDTO.getQuantity());
+        preparedStatement.executeUpdate();
     }
 
     @Override
