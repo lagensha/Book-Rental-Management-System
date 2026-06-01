@@ -36,7 +36,11 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void deleteUser(String id) {
+    public void deleteUser(String id) throws SQLException {
+        Connection connection= DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM User WHERE id=?");
+        preparedStatement.setObject(1,id);
+        preparedStatement.executeUpdate();
 
     }
 
