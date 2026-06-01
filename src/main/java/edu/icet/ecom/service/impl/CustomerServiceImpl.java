@@ -1,20 +1,20 @@
 package edu.icet.ecom.service.impl;
 
-import edu.icet.ecom.dto.UserDTO;
-import edu.icet.ecom.repository.impl.UserRepositoryImpl;
-import edu.icet.ecom.service.UserService;
+import edu.icet.ecom.dto.CustomerDTO;
+import edu.icet.ecom.repository.impl.CustomerRepositoryImpl;
+import edu.icet.ecom.service.CustomerService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserServiceImpl implements UserService{
+public class CustomerServiceImpl implements CustomerService {
 
-    UserRepositoryImpl userRepository = new UserRepositoryImpl();
+    CustomerRepositoryImpl userRepository = new CustomerRepositoryImpl();
 
     @Override
-    public void addUser(UserDTO userDTO) {
+    public void addUser(CustomerDTO userDTO) {
         try {
             userRepository.addUser(userDTO);
         } catch (SQLException e) {
@@ -41,13 +41,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ObservableList<UserDTO> getAllUser() {
-        ObservableList<UserDTO>userDTOObservableList= FXCollections.observableArrayList();
-        UserRepositoryImpl userRepository1 = new UserRepositoryImpl();
+    public ObservableList<CustomerDTO> getAllUser() {
+        ObservableList<CustomerDTO>userDTOObservableList= FXCollections.observableArrayList();
+        CustomerRepositoryImpl userRepository1 = new CustomerRepositoryImpl();
         try {
             ResultSet resultSet=userRepository1.viewUsers();
             while (resultSet.next()){
-                userDTOObservableList.add(new UserDTO(
+                userDTOObservableList.add(new CustomerDTO(
                         resultSet.getString("Id"),
                         resultSet.getString("Username"),
                         resultSet.getString("Email"),

@@ -1,8 +1,8 @@
 package edu.icet.ecom.controller;
 
 
-import edu.icet.ecom.dto.UserDTO;
-import edu.icet.ecom.service.impl.UserServiceImpl;
+import edu.icet.ecom.dto.CustomerDTO;
+import edu.icet.ecom.service.impl.CustomerServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,9 +15,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UserController implements Initializable {
+public class CustomerController implements Initializable {
 
-    UserServiceImpl userService = new UserServiceImpl();
+    CustomerServiceImpl userService = new CustomerServiceImpl();
     @FXML
     private Button btnCreate;
 
@@ -43,7 +43,7 @@ public class UserController implements Initializable {
     private TableColumn<?, ?> colPhoneNumber;
 
     @FXML
-    private TableView<UserDTO> tblUserTable;
+    private TableView<CustomerDTO> tblUserTable;
 
     @FXML
     private TextField txtEmail;
@@ -63,7 +63,7 @@ public class UserController implements Initializable {
         String name=txtName.getText();
         String email=txtEmail.getText();
         String phoneNumber=txtPhoneNumber.getText();
-        UserDTO userDTO = new UserDTO(id, name, email, phoneNumber);
+        CustomerDTO userDTO = new CustomerDTO(id, name, email, phoneNumber);
         userService.addUser(userDTO);
         loadTable();
         restTable();

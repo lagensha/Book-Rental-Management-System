@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #232F72;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.UserController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #232F72;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.CustomerController">
    <children>
       <Label layoutX="211.0" layoutY="14.0" text="User Records">
          <font>

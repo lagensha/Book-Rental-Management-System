@@ -1,18 +1,18 @@
 package edu.icet.ecom.repository.impl;
 
 import edu.icet.ecom.db.DBConnection;
-import edu.icet.ecom.dto.UserDTO;
-import edu.icet.ecom.repository.UserRepository;
+import edu.icet.ecom.dto.CustomerDTO;
+import edu.icet.ecom.repository.CustomerRepository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserRepositoryImpl implements UserRepository {
+public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
-    public void addUser(UserDTO userDTO) throws SQLException {
+    public void addUser(CustomerDTO userDTO) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO User(id,username, email, phoneNumber) VALUES (?,?,?,?)");
         preparedStatement.setObject(1,userDTO.getId());
