@@ -3,6 +3,7 @@ package edu.icet.ecom.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class SignInPageController {
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
         try {
-            stage.setScene(FXMLLoader.load(getClass().getResource("/view/UserPage.fxml")));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UserPage.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -84,16 +84,15 @@ public class UserController implements Initializable {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
 
-            loadTable();
-            tblUserTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-                    txtId.setText(newValue.getId());
-                    txtName.setText(newValue.getUsername());
-                    txtEmail.setText(newValue.getEmail());
-                    txtPhoneNumber.setText(newValue.getPhoneNumber());
-                }
-            });
-
+        loadTable();
+        tblUserTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                txtId.setText(newValue.getId());
+                txtName.setText(newValue.getUsername());
+                txtEmail.setText(newValue.getEmail());
+                txtPhoneNumber.setText(newValue.getPhoneNumber());
+            }
+        });
     }
 
     private void loadTable() {

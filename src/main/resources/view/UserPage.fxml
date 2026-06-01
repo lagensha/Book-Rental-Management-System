@@ -6,15 +6,33 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #810B38;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.UserController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #232F72;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.UserController">
    <children>
-      <Label layoutX="199.0" layoutY="23.0" text="User Records" textFill="#f2f0f0">
+      <Label layoutX="211.0" layoutY="14.0" text="User Records">
          <font>
-            <Font name="System Bold" size="25.0" />
+            <Font name="System Bold" size="29.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.07145468145608902" green="0.42207297682762146" blue="0.45394736528396606" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <TextField fx:id="txtId" layoutX="84.0" layoutY="81.0" promptText="UserId" />
       <TextField fx:id="txtName" layoutX="353.0" layoutY="81.0" promptText="Name" />

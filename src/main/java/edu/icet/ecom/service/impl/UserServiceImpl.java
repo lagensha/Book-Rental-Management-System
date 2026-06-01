@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService{
                 userDTOObservableList.add(new UserDTO(
                         resultSet.getString("Id"),
                         resultSet.getString("Username"),
-                        resultSet.getString("PhoneNumber"),
-                        resultSet.getString("Email")
+                        resultSet.getString("Email"),
+                        resultSet.getString("PhoneNumber")
                 ));
             }
         } catch (SQLException e) {
