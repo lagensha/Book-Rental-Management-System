@@ -24,7 +24,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void updateUser(String username, String phoneNumber, String email, String id) {
-
+        try {
+            userRepository.updateUser(username,phoneNumber,email,id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
