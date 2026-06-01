@@ -33,7 +33,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void deleteUser(String id) {
-
+        try {
+            userRepository.deleteUser(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
