@@ -11,7 +11,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #202940;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.BookController">
    <children>
       <Label layoutX="169.0" text="Books Report">
@@ -43,8 +42,8 @@
         <columns>
           <TableColumn fx:id="colTitle" prefWidth="122.0" text="Title" />
             <TableColumn fx:id="colAuthor" prefWidth="122.0" text="Author" />
-            <TableColumn fx:id="colQuantity" prefWidth="122.0" text="Quantity Details" />
             <TableColumn fx:id="colCategory" prefWidth="122.0" text="Category" />
+            <TableColumn fx:id="colQuantity" prefWidth="122.0" text="Quantity Details" />
         </columns>
       </TableView>
       <Button fx:id="btnCreate" layoutX="72.0" layoutY="149.0" mnemonicParsing="false" onAction="#btnCreateOnAction" prefHeight="33.0" prefWidth="73.0" text="Create">
