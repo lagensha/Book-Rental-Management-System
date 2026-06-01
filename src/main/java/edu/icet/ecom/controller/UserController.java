@@ -71,7 +71,10 @@ public class UserController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        String id=txtId.getText();
+        userService.deleteUser(id);
+        loadTable();
+        restTable();
     }
 
     @FXML
