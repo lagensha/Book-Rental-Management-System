@@ -58,29 +58,44 @@ public class BookController implements Initializable {
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
+        String id = txtTitle.getText();
        String title = txtTitle.getText();
          String author = txtAuthor.getText();
             String category = txtCategory.getText();
             String quantity=txtQuantityDetails.getText();
-        BookDTO bookDTO = new BookDTO(title, author, category, Integer.parseInt(quantity));
+        BookDTO bookDTO = new BookDTO(id, title, author, category, quantity);
         bookService.addBook(bookDTO);
         loadTable();
-
+        resetTable();
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        BookDTO selectedBook = tblBooks.getSelectionModel().getSelectedItem();
+        if (selectedBook != null) {
+            bookService.deleteBook(selectedBook.getId());
+            loadTable();
+            resetTable();
+        }
     }
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
-
+        resetTable();
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        BookDTO selectedBook = tblBooks.getSelectionModel().getSelectedItem();
+        if (selectedBook != null) {
+            String title = txtTitle.getText();
+            String author = txtAuthor.getText();
+            String category = txtCategory.getText();
+            Integer quantity = Integer.parseInt(txtQuantityDetails.getText());
+            bookService.updateBook(title, author, category, quantity, selectedBook.getId());
+            loadTable();
+            resetTable();
+        }
     }
 
     @Override
@@ -104,7 +119,7 @@ public class BookController implements Initializable {
     public void loadTable() {
         tblBooks.setItems(bookService.getAllBook());
     }
-    public void restTable() {
+    public void resetTable() {
         txtAuthor.clear();
         txtCategory.clear();
         txtQuantityDetails.clear();
