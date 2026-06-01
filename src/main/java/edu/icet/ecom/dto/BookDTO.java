@@ -10,6 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class BookDTO {
+    private String id;
     private String title;
     private String author;
     private String category;
