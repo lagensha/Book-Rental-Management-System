@@ -59,7 +59,14 @@ public class UserController implements Initializable {
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
-
+        String id=txtId.getText();
+        String name=txtName.getText();
+        String email=txtEmail.getText();
+        String phoneNumber=txtPhoneNumber.getText();
+        UserDTO userDTO = new UserDTO(id, name, email, phoneNumber);
+        userService.addUser(userDTO);
+        loadTable();
+        restTable();
     }
 
     @FXML
