@@ -2,12 +2,16 @@ package edu.icet.ecom.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
-public class BookController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class BookController implements Initializable {
 
     @FXML
     private Button btnCreate;
@@ -68,4 +72,8 @@ public class BookController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
