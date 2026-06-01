@@ -69,7 +69,7 @@ public class UserController implements Initializable {
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
-
+        restTable();
     }
 
     @FXML
