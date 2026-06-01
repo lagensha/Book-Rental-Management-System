@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public ObservableList<UserDTO> getAllAdmins() {
+    public ObservableList<UserDTO> getAllUser() {
         ObservableList<UserDTO>userDTOObservableList= FXCollections.observableArrayList();
         UserRepositoryImpl userRepository1 = new UserRepositoryImpl();
         try {
