@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public interface UserRepository {
     void addUser(UserDTO userDTO) throws SQLException;
-    void updateUser(String username,String phoneNumber,String email,String id);
+    void updateUser(String username,String phoneNumber,String email,String id) throws SQLException;
     void deleteUser(String id);
     public ResultSet viewUsers() throws SQLException;
 }

@@ -23,7 +23,15 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void updateUser(String username, String phoneNumber, String email, String id) {
+    public void updateUser(String username, String phoneNumber, String email, String id) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE User SET username=?, email=?, phoneNumber=? WHERE id=?");
+        preparedStatement.setObject(1,username);
+        preparedStatement.setObject(2,email);
+        preparedStatement.setObject(3,phoneNumber);
+        preparedStatement.setObject(4,id);
+        preparedStatement.executeUpdate();
+
 
     }
 
