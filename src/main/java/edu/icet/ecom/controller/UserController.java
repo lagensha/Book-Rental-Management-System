@@ -81,7 +81,13 @@ public class UserController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        String id=txtId.getText();
+        String name=txtName.getText();
+        String email=txtEmail.getText();
+        String phoneNumber=txtPhoneNumber.getText();
+        userService.updateUser(name,phoneNumber,email,id);
+        loadTable();
+        restTable();
     }
 
     @Override
