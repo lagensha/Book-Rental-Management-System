@@ -12,8 +12,14 @@ import java.sql.SQLException;
 public class UserRepositoryImpl implements UserRepository {
 
     @Override
-    public void addUser(UserDTO userDTO) {
-
+    public void addUser(UserDTO userDTO) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO User(id,username, email, phoneNumber) VALUES (?,?,?,?)");
+        preparedStatement.setObject(1,userDTO.getId());
+        preparedStatement.setObject(2,userDTO.getUsername());
+        preparedStatement.setObject(3,userDTO.getEmail());
+        preparedStatement.setObject(4,userDTO.getPhoneNumber());
+        preparedStatement.executeUpdate();
     }
 
     @Override

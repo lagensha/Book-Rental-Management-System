@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public interface UserRepository {
-    void addUser(UserDTO userDTO);
+    void addUser(UserDTO userDTO) throws SQLException;
     void updateUser(String username,String phoneNumber,String email,String id);
     void deleteUser(String id);
     public ResultSet viewUsers() throws SQLException;
