@@ -5,8 +5,6 @@ import edu.icet.ecom.repository.impl.BookRepositoryImpl;
 import edu.icet.ecom.service.BookService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -43,7 +41,7 @@ public class BookServiceImpl implements BookService {
                         resultSet.getString("Title"),
                         resultSet.getString("Author"),
                         resultSet.getString("Category"),
-                        resultSet.getInt("Quantity")
+                        resultSet.getString("Quantity")
                 ));
             }
             return bookDTOS;

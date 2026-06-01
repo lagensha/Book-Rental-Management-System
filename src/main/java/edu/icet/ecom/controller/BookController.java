@@ -58,6 +58,13 @@ public class BookController implements Initializable {
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
+       String title = txtTitle.getText();
+         String author = txtAuthor.getText();
+            String category = txtCategory.getText();
+            String quantity=txtQuantityDetails.getText();
+        BookDTO bookDTO = new BookDTO(title, author, category, Integer.parseInt(quantity));
+        bookService.addBook(bookDTO);
+        loadTable();
 
     }
 
