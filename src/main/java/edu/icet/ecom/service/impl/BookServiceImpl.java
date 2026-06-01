@@ -14,7 +14,11 @@ public class BookServiceImpl implements BookService {
     BookRepositoryImpl bookRepository = new BookRepositoryImpl();
     @Override
     public void addBook(BookDTO bookDTO) {
-
+        try {
+            bookRepository.addBook(bookDTO);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
