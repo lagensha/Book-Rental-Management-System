@@ -2,7 +2,6 @@ package edu.icet.ecom.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -11,11 +10,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.sql.Connection;
 
-
-public class PlaceOrderBookController implements Initializable {
+public class PlaceOrderBookController {
 
     @FXML
     private Button btnAddToCart;
@@ -27,7 +24,7 @@ public class PlaceOrderBookController implements Initializable {
     private ComboBox<?> cmbBookId;
 
     @FXML
-    private ComboBox<String> cmbCustomerId;
+    private ComboBox<?> cmbCustomerId;
 
     @FXML
     private TableColumn<?, ?> colBookId;
@@ -65,16 +62,12 @@ public class PlaceOrderBookController implements Initializable {
 
     @FXML
     void cmbCustomerIdOnAction(ActionEvent event) {
+
     }
 
     @FXML
     void cmdBookIdOnAction(ActionEvent event) {
 
     }
-    private void loadTable() {
 
-    }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
 }

@@ -8,7 +8,6 @@ import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
 
@@ -59,11 +58,6 @@ public class CustomerServiceImpl implements CustomerService {
             throw new RuntimeException(e);
         }
         return userDTOObservableList;
-    }
-
-    @Override
-    public List<String> loadCustomer() {
-        return List.of();
     }
 
 }
