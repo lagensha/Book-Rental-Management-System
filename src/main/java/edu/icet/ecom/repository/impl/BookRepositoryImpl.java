@@ -25,7 +25,15 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public void updateBook(String title, String author, String category, Integer quantity, String id) {
+    public void updateBook(String title, String author, String category, Integer quantity, String id) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE Book SET Title=?, Author=?, Category=?, Quantity=? WHERE Id=?");
+        preparedStatement.setObject(1,title);
+        preparedStatement.setObject(2,author);
+        preparedStatement.setObject(3,category);
+        preparedStatement.setObject(4,quantity);
+        preparedStatement.setObject(5,id);
+        preparedStatement.executeUpdate();
 
     }
 
