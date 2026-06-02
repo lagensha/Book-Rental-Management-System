@@ -4,18 +4,23 @@ import edu.icet.ecom.dto.LoginPageDTO;
 import edu.icet.ecom.service.impl.AdminServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
 
+    Stage stage = new Stage();
     AdminServiceImpl adminService = new AdminServiceImpl();
     LoginPageDTO loginPageDTO = new LoginPageDTO();
     @FXML
@@ -56,6 +61,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private TextField txtPassword;
+
+    @FXML
+    public Button btnNextPage;
 
     @FXML
     void btnCreateOnAction(ActionEvent event) {
@@ -125,5 +133,14 @@ public class AdminController implements Initializable {
                 txtEmail.setText(t1.getEmail());
             }
         }));
+    }
+
+    public void btnNextPageOnAction(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerPage.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -6,26 +6,54 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.AdminController">
    <children>
-      <AnchorPane layoutY="-2.0" prefHeight="423.0" prefWidth="625.0" style="-fx-background-color: #007979;">
+      <AnchorPane prefHeight="447.0" prefWidth="625.0" style="-fx-background-color: #007979;">
          <children>
-            <Label layoutX="199.0" layoutY="23.0" text="Admin Records" textFill="#f2f0f0">
+            <Label layoutX="191.0" layoutY="14.0" text="Admin Records">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <TextField fx:id="txtId" layoutX="84.0" layoutY="81.0" promptText="UserId" />
-            <TextField fx:id="txtName" layoutX="353.0" layoutY="81.0" promptText="Name" />
-            <TextField fx:id="txtEmail" layoutX="84.0" layoutY="126.0" promptText="Email" />
-            <TextField fx:id="txtPassword" layoutX="353.0" layoutY="126.0" promptText="Password" />
-            <Button fx:id="btnCreate" layoutX="42.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnCreateOnAction" prefHeight="25.0" prefWidth="84.0" text="Create" />
-            <Button fx:id="btnReset" layoutX="338.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="25.0" prefWidth="84.0" text="Reset" />
-            <Button fx:id="btnUpdate" layoutX="191.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="84.0" text="Update" />
-            <Button fx:id="btnDelete" layoutX="479.0" layoutY="175.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="84.0" text="Delete" />
-            <TableView fx:id="tblAdminTable" layoutX="22.0" layoutY="212.0" prefHeight="200.0" prefWidth="582.0">
+            <TextField fx:id="txtId" layoutX="84.0" layoutY="69.0" promptText="UserId" />
+            <TextField fx:id="txtName" layoutX="353.0" layoutY="69.0" promptText="Name" />
+            <TextField fx:id="txtEmail" layoutX="84.0" layoutY="114.0" promptText="Email" />
+            <TextField fx:id="txtPassword" layoutX="353.0" layoutY="108.0" promptText="Password" />
+            <Button fx:id="btnCreate" layoutX="42.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnCreateOnAction" prefHeight="25.0" prefWidth="84.0" text="Create">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="btnReset" layoutX="337.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnResetOnAction" prefHeight="25.0" prefWidth="84.0" text="Reset">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button fx:id="btnUpdate" layoutX="191.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="84.0" text="Update">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="btnDelete" layoutX="478.0" layoutY="163.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="84.0" text="Delete" />
+            <TableView fx:id="tblAdminTable" layoutX="22.0" layoutY="198.0" prefHeight="200.0" prefWidth="582.0">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="97.5" text="Admin Id" />
                   <TableColumn fx:id="colName" prefWidth="134.5" text="Name" />
@@ -33,6 +61,11 @@
                   <TableColumn fx:id="colPassword" prefWidth="134.5" text="Password" />
                </columns>
             </TableView>
+            <Button fx:id="btnNextPage" layoutX="494.0" layoutY="408.0" mnemonicParsing="false" onAction="#btnNextPageOnAction" prefHeight="31.0" prefWidth="74.0" text="Next">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>
