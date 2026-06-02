@@ -88,7 +88,14 @@ public class BookController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-
+        String id=txtId.getText();
+        String title=txtTitle.getText();
+        String author=txtAuthor.getText();
+        String category=txtCategory.getText();
+        String quantity=txtQuantityDetails.getText();
+        bookService.updateBook(title,author,category,Integer.valueOf(quantity),id);
+        loadTable();
+        resetTable();
     }
 
     @Override
