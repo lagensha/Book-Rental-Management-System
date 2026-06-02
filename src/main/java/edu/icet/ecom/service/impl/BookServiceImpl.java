@@ -30,7 +30,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(String id) {
-
+        try {
+            bookRepository.deleteBook(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
