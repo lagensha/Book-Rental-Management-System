@@ -21,7 +21,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void updateBook(String title, String author, String category, Integer quantity, String id) {
-
+        try {
+            bookRepository.updateBook(title,author,category,quantity,id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
