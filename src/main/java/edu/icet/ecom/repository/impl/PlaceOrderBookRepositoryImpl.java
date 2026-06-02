@@ -23,7 +23,7 @@ public class PlaceOrderBookRepositoryImpl implements PlaceOrderBookRepository {
             while (resultSet.next()) {
              customerIds.add(resultSet.getString("id"));
             }
-            cmbCustomerId.setItems(customerIds);
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
