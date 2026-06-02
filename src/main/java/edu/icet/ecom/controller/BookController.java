@@ -83,7 +83,7 @@ public class BookController implements Initializable {
 
     @FXML
     void btnResetOnAction(ActionEvent event) {
-
+        resetTable();
     }
 
     @FXML
