@@ -78,7 +78,10 @@ public class BookController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        String id = txtId.getText();
+        bookService.deleteBook(id);
+        loadTable();
+        resetTable();
     }
 
     @FXML
