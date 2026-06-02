@@ -9,6 +9,6 @@ import java.sql.SQLException;
 public interface BookRepository {
     void addBook(BookDTO bookDTO) throws SQLException;
     void updateBook(String title,String author,String category,Integer quantity,String id) throws SQLException;
-    void deleteBook(String id);
+    void deleteBook(String id) throws SQLException;
     ResultSet getAllBook() throws SQLException;
 }
