@@ -1,6 +1,7 @@
 package edu.icet.ecom.service;
 
+import java.util.List;
+
 public interface PlaceOrderBookService {
-    void loadCustomer(String id);
-    void loadBook(String id);
+   List<String> loadCustomer();
 }
