@@ -1,5 +1,6 @@
 package edu.icet.ecom.controller;
 
+import edu.icet.ecom.db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PlaceOrderBookController {
 
@@ -24,7 +28,7 @@ public class PlaceOrderBookController {
     private ComboBox<?> cmbBookId;
 
     @FXML
-    private ComboBox<?> cmbCustomerId;
+    private ComboBox<String> cmbCustomerId;
 
     @FXML
     private TableColumn<?, ?> colBookId;
@@ -68,6 +72,19 @@ public class PlaceOrderBookController {
     @FXML
     void cmdBookIdOnAction(ActionEvent event) {
 
+    }
+    private void loadCustomerId(){
+        try {
+            Connection connection= DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement=connection.prepareStatement("SELECT id FROM User");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                cmbCustomerId.getItems().add(resultSet.getString(1));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
