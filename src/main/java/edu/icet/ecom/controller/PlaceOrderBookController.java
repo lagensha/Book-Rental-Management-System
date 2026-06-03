@@ -1,6 +1,8 @@
 package edu.icet.ecom.controller;
 
 import edu.icet.ecom.db.DBConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -73,18 +75,20 @@ public class PlaceOrderBookController {
     void cmdBookIdOnAction(ActionEvent event) {
 
     }
-    private void loadCustomerId(){
-        try {
-            Connection connection= DBConnection.getInstance().getConnection();
-            PreparedStatement preparedStatement=connection.prepareStatement("SELECT id FROM User");
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                cmbCustomerId.getItems().add(resultSet.getString(1));
 
+    private void loadCustomerId() {
+        ObservableList<String> customerList = FXCollections.observableArrayList();
+        String sql = "SELECT customer_id FROM User";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                customerList.add(resultSet.getString("customer_id"));
             }
+            cmbCustomerId.setItems(customerList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
-}
+    }
