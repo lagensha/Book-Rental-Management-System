@@ -95,7 +95,9 @@ public class PlaceOrderBookController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+    private void loadBookId(){
 
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
