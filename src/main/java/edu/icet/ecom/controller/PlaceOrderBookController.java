@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -13,12 +14,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class PlaceOrderBookController {
+public class PlaceOrderBookController implements Initializable {
 
     @FXML
     private Button btnAddToCart;
@@ -68,27 +71,34 @@ public class PlaceOrderBookController {
 
     @FXML
     void cmbCustomerIdOnAction(ActionEvent event) {
-
+        loadCustomerId();
     }
 
     @FXML
+
     void cmdBookIdOnAction(ActionEvent event) {
 
     }
 
     private void loadCustomerId() {
         ObservableList<String> customerList = FXCollections.observableArrayList();
-        String sql = "SELECT customer_id FROM User";
+        String sql = "SELECT Id FROM User";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                customerList.add(resultSet.getString("customer_id"));
+                customerList.add(resultSet.getString("Id"));
             }
             cmbCustomerId.setItems(customerList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadCustomerId();
     }
+}

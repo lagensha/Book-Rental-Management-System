@@ -12,7 +12,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1A3263;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.LandingPageController">
    <children>
       <ImageView fitHeight="160.0" fitWidth="235.0" layoutX="11.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
@@ -64,12 +63,17 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Button fx:id="btnLogin" layoutX="189.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="64.0" text="Login">
+      <Button fx:id="btnLogin" layoutX="129.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="26.0" prefWidth="64.0" text="Login">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnSignIn" layoutX="380.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="64.0" text="SignIn">
+      <Button fx:id="btnSignIn" layoutX="278.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="64.0" text="SignIn">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnPlaceOrder" layoutX="444.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnPlaceOrder" prefHeight="26.0" prefWidth="64.0" text="Order">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

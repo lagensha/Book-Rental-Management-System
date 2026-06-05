@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class LandingPageController {
 
+    public Button btnPlaceOrder;
     @FXML
     private Button btnLogin;
 
@@ -38,4 +39,12 @@ public class LandingPageController {
         stage.show();
     }
 
+    public void btnPlaceOrder(ActionEvent actionEvent) {
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/PlaceOrderBookPage.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        stage.show();
+    }
 }
