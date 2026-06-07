@@ -122,7 +122,7 @@ public class BookRentController implements Initializable {
 
     }
     private void loadTable() {
-        tblBooksOrder.setItems(getAllOrders());
+
     }
 
 }
