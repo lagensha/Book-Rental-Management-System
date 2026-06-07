@@ -97,7 +97,7 @@ public class PlaceOrderBookController implements Initializable {
     }
     private void loadBookId(){
         ObservableList<String>bookIdList=FXCollections.observableArrayList();
-
+        String sql="SELECT Id FROM Book";
     }
 
     @Override
