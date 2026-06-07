@@ -71,6 +71,7 @@ public class PlaceOrderBookController implements Initializable {
 
     @FXML
     void cmbCustomerIdOnAction(ActionEvent event) {
+
         loadCustomerId();
     }
 
@@ -112,7 +113,7 @@ public class PlaceOrderBookController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        loadBookId();
         loadCustomerId();
     }
 }
