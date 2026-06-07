@@ -68,12 +68,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btnSignIn" layoutX="278.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="64.0" text="SignIn">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnPlaceOrder" layoutX="444.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnPlaceOrder" prefHeight="26.0" prefWidth="64.0" text="Order">
+      <Button fx:id="btnSignIn" layoutX="338.0" layoutY="340.0" mnemonicParsing="false" onAction="#btnSignInOnAction" prefHeight="26.0" prefWidth="64.0" text="SignIn">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
