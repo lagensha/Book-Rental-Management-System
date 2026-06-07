@@ -96,11 +96,13 @@ public class PlaceOrderBookController implements Initializable {
         }
     }
     private void loadBookId(){
+        ObservableList<String>bookIdList=FXCollections.observableArrayList();
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         loadCustomerId();
     }
 }
