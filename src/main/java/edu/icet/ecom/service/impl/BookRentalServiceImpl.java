@@ -24,6 +24,13 @@ public class BookRentalServiceImpl implements BookRentalService {
         BookRepositoryImpl bookRepository1 = new BookRepositoryImpl();
         try {
             ResultSet resultSet = bookRepository1.getAllBook();
+            while (resultSet.next()) {
+            bookRentDTOS.add(new BookRentDTO(
+                 resultSet.getInt("Book_Id"),
+                 resultSet.getInt("Customer_Id"),
+                    resultSet.getInt("Quantity")
+            ));
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
