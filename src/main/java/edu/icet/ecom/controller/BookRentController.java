@@ -106,7 +106,7 @@ public class BookRentController implements Initializable {
     }
     private void loadBookId(){
         ObservableList<String>bookIdList=FXCollections.observableArrayList();
-        String sql="SELECT Id FROM Book";
+        String sql="SELECT Id FROM book";
         try {
             Connection connection=DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -114,6 +114,7 @@ public class BookRentController implements Initializable {
             while (resultSet.next()) {
                 bookIdList.add(resultSet.getString("Id"));
             }
+            cmbBookId.setItems(bookIdList);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -130,6 +131,7 @@ public class BookRentController implements Initializable {
 
     }
     private void loadTable() {
+
 
     }
 
