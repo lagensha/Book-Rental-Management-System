@@ -31,7 +31,7 @@ public class SignInPageController {
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/BookPage.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/BookRentPage.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
