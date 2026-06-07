@@ -33,7 +33,7 @@ public class BookRentController implements Initializable {
     private Button btnPlaceOrder;
 
     @FXML
-    private ComboBox<?> cmbBookId;
+    private ComboBox<String> cmbBookId;
 
     @FXML
     private ComboBox<String> cmbCustomerId;
@@ -66,10 +66,11 @@ public class BookRentController implements Initializable {
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         bookRentList.add(new BookRentDTO(
-                cmbBookId.getValue().toString(),
-                cmbCustomerId.getValue().toString(),
-                Integer.parseInt(txtQuantity.getText()
+                cmbBookId.getValue(),
+                cmbCustomerId.getValue(),
+                Integer.parseInt(txtQuantity.getText())
         ));
+        tblBooksOrder.setItems(FXCollections.observableArrayList());
     }
 
     @FXML

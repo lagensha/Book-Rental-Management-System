@@ -10,7 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class BookRentDTO {
-    Integer bookId;
-    Integer customerId;
+    String bookId;
+    String customerId;
     Integer quantity;
 }
