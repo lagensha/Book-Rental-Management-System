@@ -65,7 +65,11 @@ public class BookRentController implements Initializable {
     ArrayList<BookRentDTO> bookRentList = new ArrayList<>();
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-
+        bookRentList.add(new BookRentDTO(
+                cmbBookId.getValue().toString(),
+                cmbCustomerId.getValue().toString(),
+                Integer.parseInt(txtQuantity.getText()
+        ));
     }
 
     @FXML
