@@ -22,6 +22,7 @@ public class BookRentRepositoryImpl implements BookRentRepository {
     public ResultSet getAllBookRent() throws SQLException {
         Connection connection= DBConnection.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM  rentbooks");
+        return preparedStatement.executeQuery();
     }
 
     @Override
