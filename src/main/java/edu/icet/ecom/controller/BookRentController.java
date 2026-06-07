@@ -21,7 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class PlaceOrderBookController implements Initializable {
+public class BookRentController implements Initializable {
 
     @FXML
     private Button btnAddToCart;
@@ -113,7 +113,8 @@ public class PlaceOrderBookController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadBookId();
-        loadCustomerId();
+       loadBookId();
+      loadCustomerId();
+
     }
 }
