@@ -101,6 +101,7 @@ public class PlaceOrderBookController implements Initializable {
         try {
             Connection connection=DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
