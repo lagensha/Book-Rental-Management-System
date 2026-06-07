@@ -41,7 +41,7 @@ public class LandingPageController {
 
     public void btnPlaceOrder(ActionEvent actionEvent) {
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/PlaceOrderBookPage.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/BookRentPage.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
