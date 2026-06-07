@@ -78,7 +78,7 @@ public class PlaceOrderBookController implements Initializable {
     @FXML
 
     void cmdBookIdOnAction(ActionEvent event) {
-
+        loadBookId();
     }
 
     private void loadCustomerId() {
