@@ -130,9 +130,5 @@ public class BookRentController implements Initializable {
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
 
     }
-    private void loadTable() {
-
-
-    }
 
 }
