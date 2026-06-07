@@ -12,10 +12,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="lblNetTotal" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #111844;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.PlaceOrderBookController">
+<AnchorPane fx:id="lblNetTotal" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #111844;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.ecom.controller.BookRentController">
    <children>
-      <Label layoutX="192.0" layoutY="8.0" text="Books Order ">
+      <Label layoutX="192.0" layoutY="8.0" text="Rent Books ">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -39,30 +38,19 @@
       <ComboBox fx:id="cmbBookId" layoutX="23.0" layoutY="72.0" onAction="#cmdBookIdOnAction" prefWidth="150.0" promptText="Books Id" />
       <ComboBox fx:id="cmbCustomerId" layoutX="225.0" layoutY="72.0" onAction="#cmbCustomerIdOnAction" prefWidth="150.0" promptText="Customer Id" />
       <TextField fx:id="txtQuantity" layoutX="417.0" layoutY="72.0" promptText="Quantity" />
-      <Button fx:id="btnAddToCart" layoutX="456.0" layoutY="123.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" prefHeight="25.0" prefWidth="70.0" text="Add">
+      <Button fx:id="btnAddToCart" layoutX="122.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" prefHeight="25.0" prefWidth="70.0" text="Add">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tblBooksOrder" layoutX="14.0" layoutY="136.0" prefHeight="200.0" prefWidth="392.0">
+      <TableView fx:id="tblBooksOrder" layoutX="96.0" layoutY="174.0" prefHeight="200.0" prefWidth="392.0">
         <columns>
           <TableColumn fx:id="colBookId" prefWidth="112.0" text="Book Id" />
-            <TableColumn fx:id="colCustomerId" prefWidth="112.0" text="Customer Id" />
-            <TableColumn fx:id="colQuantity" prefWidth="79.5" text="Quantity" />
-            <TableColumn fx:id="colTotal" prefWidth="87.0" text="Total" />
+            <TableColumn fx:id="colCustomerId" prefWidth="132.0" text="Customer Id" />
+            <TableColumn fx:id="colQuantity" prefWidth="144.5" text="Quantity" />
         </columns>
       </TableView>
-      <Label layoutX="417.0" layoutY="186.0" prefHeight="28.0" prefWidth="105.0" text="Net Total :" textFill="#ebe4e4">
-         <font>
-            <Font name="System Bold" size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblCount" layoutX="531.0" layoutY="184.0" prefHeight="25.0" prefWidth="60.0" text="00.0" textFill="#f5efef">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnPlaceOrder" layoutX="447.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="31.0" prefWidth="105.0" text="Place Order">
+      <Button fx:id="btnPlaceOrder" layoutX="292.0" layoutY="130.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="31.0" prefWidth="105.0" text="Get Book">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
