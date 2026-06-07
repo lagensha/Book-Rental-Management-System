@@ -3,8 +3,11 @@ package edu.icet.ecom.service.impl;
 import edu.icet.ecom.dto.BookRentDTO;
 import edu.icet.ecom.repository.impl.BookRepositoryImpl;
 import edu.icet.ecom.service.BookRentalService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class BookRentalServiceImpl implements BookRentalService {
 
@@ -17,7 +20,13 @@ public class BookRentalServiceImpl implements BookRentalService {
 
     @Override
     public ResultSet getAllBookRent() {
-
+        ObservableList<BookRentDTO> bookRentDTOS = FXCollections.observableArrayList();
+        BookRepositoryImpl bookRepository1 = new BookRepositoryImpl();
+        try {
+            ResultSet resultSet = bookRepository1.getAllBook();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
