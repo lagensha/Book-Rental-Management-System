@@ -108,6 +108,7 @@ public class AdminController implements Initializable {
 
 
     public void loadTable() {
+
         tblAdminTable.setItems(adminService.getAllAdmins());
     }
 
