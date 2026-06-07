@@ -98,6 +98,11 @@ public class PlaceOrderBookController implements Initializable {
     private void loadBookId(){
         ObservableList<String>bookIdList=FXCollections.observableArrayList();
         String sql="SELECT Id FROM Book";
+        try {
+            Connection connection=DBConnection.getInstance().getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
