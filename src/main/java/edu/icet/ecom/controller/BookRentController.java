@@ -1,6 +1,7 @@
 package edu.icet.ecom.controller;
 
 import edu.icet.ecom.db.DBConnection;
+import edu.icet.ecom.dto.BookRentDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookRentController implements Initializable {
@@ -60,6 +62,7 @@ public class BookRentController implements Initializable {
     @FXML
     private TextField txtQuantity;
 
+    ArrayList<BookRentDTO> bookRentList = new ArrayList<>();
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
 
