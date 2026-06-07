@@ -1,4 +1,20 @@
 package edu.icet.ecom.repository.impl;
 
-public class BookRentRepositoryImpl {
+import edu.icet.ecom.repository.BookRentRepository;
+
+public class BookRentRepositoryImpl implements BookRentRepository {
+    @Override
+    public void AddBookRent() {
+
+    }
+
+    @Override
+    public void getAllBookRent() {
+
+    }
+
+    @Override
+    public void RentBook() {
+
+    }
 }
