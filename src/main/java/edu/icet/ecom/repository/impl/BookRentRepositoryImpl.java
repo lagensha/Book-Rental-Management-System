@@ -14,7 +14,14 @@ public class BookRentRepositoryImpl implements BookRentRepository {
 
 
     @Override
-    public void AddBookRent(BookRentDTO bookRentDTO) {
+    public void AddBookRent(BookRentDTO bookRentDTO) throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO rentbooks(bookId,customerId,quantity) VALUES (?,?,?)")) {
+            preparedStatement.setObject(1, bookRentDTO.getBookId());
+            preparedStatement.setObject(2, bookRentDTO.getCustomerId());
+            preparedStatement.setObject(3, bookRentDTO.getQuantity());
+            preparedStatement.executeUpdate();
+        }
 
     }
 
