@@ -40,9 +40,8 @@ public class BookServiceImpl implements BookService {
     @Override
     public ObservableList<BookDTO> getAllBook() {
         ObservableList<BookDTO> bookDTOS = FXCollections.observableArrayList();
-        BookRepositoryImpl bookRepository1 = new BookRepositoryImpl();
         try {
-            ResultSet resultSet = bookRepository1.getAllBook();
+            ResultSet resultSet = bookRepository.getAllBook();
             while (resultSet.next()){
                 bookDTOS.add(new BookDTO(
                         resultSet.getString("Id"),
