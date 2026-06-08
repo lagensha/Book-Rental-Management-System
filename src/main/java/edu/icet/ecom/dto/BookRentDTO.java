@@ -12,5 +12,5 @@ import lombok.ToString;
 public class BookRentDTO {
     String bookId;
     String customerId;
-    Integer quantity;
+    int quantity;
 }
