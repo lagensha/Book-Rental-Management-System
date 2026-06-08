@@ -1,7 +1,6 @@
 package edu.icet.ecom.repository;
 
 import edu.icet.ecom.dto.BookDTO;
-import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
