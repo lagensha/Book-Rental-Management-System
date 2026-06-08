@@ -1,7 +1,6 @@
 package edu.icet.ecom.service;
 
 import edu.icet.ecom.dto.BookDTO;
-import edu.icet.ecom.dto.CustomerDTO;
 import javafx.collections.ObservableList;
 
 public interface BookService {
