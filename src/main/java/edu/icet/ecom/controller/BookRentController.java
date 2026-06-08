@@ -2,6 +2,7 @@ package edu.icet.ecom.controller;
 
 import edu.icet.ecom.db.DBConnection;
 import edu.icet.ecom.dto.BookRentDTO;
+import edu.icet.ecom.service.impl.BookRentalServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BookRentController implements Initializable {
+
+    BookRentalServiceImpl bookRentalService = new BookRentalServiceImpl();
 
     @FXML
     private Button btnAddToCart;
@@ -57,7 +60,7 @@ public class BookRentController implements Initializable {
     private AnchorPane lblNetTotal;
 
     @FXML
-    private TableView<?> tblBooksOrder;
+    private TableView<BookRentDTO> tblBooksOrder;
 
     @FXML
     private TextField txtQuantity;
@@ -65,12 +68,13 @@ public class BookRentController implements Initializable {
     ArrayList<BookRentDTO> bookRentList = new ArrayList<>();
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
-        bookRentList.add(new BookRentDTO(
-                cmbBookId.getValue(),
-                cmbCustomerId.getValue(),
-                Integer.parseInt(txtQuantity.getText())
-        ));
-        tblBooksOrder.setItems(FXCollections.observableArrayList());
+        String bookId = cmbBookId.getValue();
+        String customerId = cmbCustomerId.getValue();
+        int quantity = Integer.parseInt(txtQuantity.getText());
+
+        BookRentDTO bookRentDTO = new BookRentDTO(bookId, customerId, quantity);
+        bookRentList.add(bookRentDTO);
+        loadTable();
     }
 
     @FXML
@@ -125,10 +129,23 @@ public class BookRentController implements Initializable {
        loadBookId();
       loadCustomerId();
 
-      colBookId.setCellValueFactory(new PropertyValueFactory<>("Book_Id"));
-        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("Customer_Id"));
-        colQuantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
+      colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
+        loadTable();
+
+        tblBooksOrder.getSelectionModel().selectedItemProperty().addListener(((observableValue, bookRentDTO, t1) -> {
+            if(t1 != null){
+                cmbBookId.setValue(t1.getBookId());
+                cmbCustomerId.setValue(t1.getCustomerId());
+                txtQuantity.setText(String.valueOf(t1.getQuantity()));
+            }
+        }));
+
+    }
+    private void loadTable(){
+        tblBooksOrder.setItems(FXCollections.observableArrayList(bookRentList));
     }
 
 }
