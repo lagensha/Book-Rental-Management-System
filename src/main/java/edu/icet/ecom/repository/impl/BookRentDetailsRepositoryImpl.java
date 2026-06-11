@@ -18,6 +18,7 @@ public class BookRentDetailsRepositoryImpl implements BookRentDetailsRepository 
         }
         return true;
     }
+
     public boolean insertRentDetails(BookRentDTO bookRentDTO) throws SQLException {
         return CrudUtil.execute("INSERT INTO rentbooks VALUES (?,?,?,?)",
                 bookRentDTO.getBookId(),
@@ -25,4 +26,20 @@ public class BookRentDetailsRepositoryImpl implements BookRentDetailsRepository 
                 bookRentDTO.getQuantity()
         );
     }
+
+    @Override
+    public boolean isUpdate(List<BookRentDTO> bookRentDTOList) throws SQLException {
+        for(BookRentDTO bookRentDto :bookRentDTOList){
+            boolean isUpdate = updateStockSingle(bookRentDto);
+            if(!isUpdate){
+                return false;
+            }
+        }
+        return true;
+    }
+
+private boolean updateStockSingle(BookRentDTO bookRentDTO) throws SQLException {
+    return CrudUtil.execute("UPDATE book SET quantity= quantity-? WHERE id=?",bookRentDTO.getQuantity(),bookRentDTO.getBookId());
+
+}
 }
