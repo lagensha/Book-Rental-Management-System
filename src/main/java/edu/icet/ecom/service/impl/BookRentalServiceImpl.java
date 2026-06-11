@@ -1,7 +1,6 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.BookRentDTO;
-import edu.icet.ecom.dto.CustomerDTO;
 import edu.icet.ecom.repository.impl.BookRentRepositoryImpl;
 import edu.icet.ecom.service.BookRentalService;
 import javafx.collections.FXCollections;
