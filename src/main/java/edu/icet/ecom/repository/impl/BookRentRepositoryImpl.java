@@ -3,6 +3,7 @@ package edu.icet.ecom.repository.impl;
 
 import edu.icet.ecom.db.DBConnection;
 import edu.icet.ecom.dto.BookRentDTO;
+import edu.icet.ecom.repository.BookRentDetailsRepository;
 import edu.icet.ecom.repository.BookRentRepository;
 
 
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 
 
 public class BookRentRepositoryImpl implements BookRentRepository {
-
+BookRentDetailsRepositoryImpl bookRentDetailsRepository=new BookRentDetailsRepositoryImpl();
     @Override
     public boolean rentBook(BookRentDTO bookRentDTO) throws SQLException {
         Connection connection= DBConnection.getInstance().getConnection();
@@ -20,8 +21,6 @@ public class BookRentRepositoryImpl implements BookRentRepository {
         preparedStatement.setString(1, bookRentDTO.getBookId());
         preparedStatement.setString(2, bookRentDTO.getCustomerId());
         preparedStatement.setInt(3,bookRentDTO.getQuantity());
-
-        return  preparedStatement.executeUpdate() > 0;
-
+        return preparedStatement.executeUpdate() > 0;
     }
 }
