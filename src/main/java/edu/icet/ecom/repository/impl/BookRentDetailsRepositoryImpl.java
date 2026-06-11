@@ -23,7 +23,6 @@ public class BookRentDetailsRepositoryImpl implements BookRentDetailsRepository 
                 bookRentDTO.getBookId(),
                 bookRentDTO.getCustomerId(),
                 bookRentDTO.getQuantity()
-
         );
     }
 }
