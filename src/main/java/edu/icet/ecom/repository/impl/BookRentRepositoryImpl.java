@@ -21,6 +21,5 @@ BookRentDetailsRepositoryImpl bookRentDetailsRepository=new BookRentDetailsRepos
         preparedStatement.setString(2, bookRentDTO.getCustomerId());
         preparedStatement.setInt(3,bookRentDTO.getQuantity());
         return preparedStatement.executeUpdate() > 0;
-
     }
 }
