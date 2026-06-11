@@ -72,6 +72,7 @@ public class BookRentController implements Initializable {
         String bookId = cmbBookId.getValue();
         String customerId = cmbCustomerId.getValue();
         int quantity = Integer.parseInt(txtQuantity.getText());
+        bookRentList.add(new BookRentDTO(bookId, customerId, quantity));
         tblBooksOrder.setItems(FXCollections.observableArrayList(bookRentList));
     }
 
@@ -130,9 +131,8 @@ public class BookRentController implements Initializable {
         colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-
-
         tblBooksOrder.getSelectionModel().selectedItemProperty().addListener(((observableValue, bookRentDTO, t1) -> {
+            tblBooksOrder.setItems(FXCollections.observableArrayList(bookRentList));
             if (t1 != null) {
                 cmbBookId.setValue(t1.getBookId());
                 cmbCustomerId.setValue(t1.getCustomerId());
