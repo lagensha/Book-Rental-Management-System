@@ -78,6 +78,19 @@ public class BookRentController implements Initializable {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
+        ArrayList<BookRentDTO> bookRentArrayList = new ArrayList<>();
+        bookRentList.forEach(bookRentDTO -> {
+          bookRentArrayList.add(new BookRentDTO(
+                  bookRentDTO.getBookId(),
+                  bookRentDTO.getCustomerId(),
+                  bookRentDTO.getQuantity()
+          ));
+        });
+         BookRentDTO bookRentDTO = new BookRentDTO(
+                cmbBookId.getValue(),
+                cmbCustomerId.getValue(),
+                Integer.parseInt(txtQuantity.getText())
+        );
 
     }
 
