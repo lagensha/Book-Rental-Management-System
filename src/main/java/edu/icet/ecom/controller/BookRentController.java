@@ -66,15 +66,13 @@ public class BookRentController implements Initializable {
     private TextField txtQuantity;
 
     ArrayList<BookRentDTO> bookRentList = new ArrayList<>();
+
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         String bookId = cmbBookId.getValue();
         String customerId = cmbCustomerId.getValue();
         int quantity = Integer.parseInt(txtQuantity.getText());
-
-        BookRentDTO bookRentDTO = new BookRentDTO(bookId, customerId, quantity);
-        bookRentList.add(bookRentDTO);
-        loadTable();
+        tblBooksOrder.setItems(FXCollections.observableArrayList(bookRentList));
     }
 
     @FXML
@@ -88,7 +86,6 @@ public class BookRentController implements Initializable {
     }
 
     @FXML
-
     void cmdBookIdOnAction(ActionEvent event) {
         loadBookId();
     }
@@ -108,11 +105,12 @@ public class BookRentController implements Initializable {
             throw new RuntimeException(e);
         }
     }
-    private void loadBookId(){
-        ObservableList<String>bookIdList=FXCollections.observableArrayList();
-        String sql="SELECT Id FROM book";
+
+    private void loadBookId() {
+        ObservableList<String> bookIdList = FXCollections.observableArrayList();
+        String sql = "SELECT Id FROM book";
         try {
-            Connection connection=DBConnection.getInstance().getConnection();
+            Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
@@ -126,17 +124,16 @@ public class BookRentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       loadBookId();
-      loadCustomerId();
+        loadBookId();
+        loadCustomerId();
 
-      colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
-        loadTable();
 
         tblBooksOrder.getSelectionModel().selectedItemProperty().addListener(((observableValue, bookRentDTO, t1) -> {
-            if(t1 != null){
+            if (t1 != null) {
                 cmbBookId.setValue(t1.getBookId());
                 cmbCustomerId.setValue(t1.getCustomerId());
                 txtQuantity.setText(String.valueOf(t1.getQuantity()));
@@ -144,8 +141,4 @@ public class BookRentController implements Initializable {
         }));
 
     }
-    private void loadTable(){
-        tblBooksOrder.setItems(FXCollections.observableArrayList(bookRentList));
-    }
-
 }
