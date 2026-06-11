@@ -16,6 +16,6 @@ public class BookDTO  {
     private String author;
     private String category;
     private String  quantity;
-    private List<BookRentDTO>bookRentDTOList;
+//    private List<BookRentDTO>bookRentDTOList;
 
 }
