@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BookRentDetailsRepository {
     boolean insertRentDetails(List<BookRentDTO>bookRentDTOList) throws SQLException;
+   boolean isUpdate(List<BookRentDTO> bookRentDTOList) throws SQLException;
+
 }
