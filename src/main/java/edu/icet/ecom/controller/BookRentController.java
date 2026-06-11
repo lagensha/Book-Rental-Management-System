@@ -2,22 +2,17 @@ package edu.icet.ecom.controller;
 
 import edu.icet.ecom.db.DBConnection;
 import edu.icet.ecom.dto.BookRentDTO;
+import edu.icet.ecom.service.ServiceFactory;
 import edu.icet.ecom.service.impl.BookRentalServiceImpl;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
-import javax.print.ServiceUIFactory;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,9 +21,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+@SuppressWarnings("unused")
 public class BookRentController implements Initializable {
 
-    BookRentalServiceImpl bookRentalService = new BookRentalServiceImpl();
+    BookRentalServiceImpl bookRentalService = ServiceFactory.getInstance().getService(ServiceFactory.ServiceType.BOOK_RENTAL);
 
     @FXML
     private Button btnAddToCart;
@@ -52,12 +48,6 @@ public class BookRentController implements Initializable {
     private TableColumn<?, ?> colQuantity;
 
     @FXML
-    private TableColumn<?, ?> colTotal;
-
-    @FXML
-    private Label lblCount;
-
-    @FXML
     private AnchorPane lblNetTotal;
 
     @FXML
@@ -79,20 +69,21 @@ public class BookRentController implements Initializable {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
-        ArrayList<BookRentDTO> bookRentArrayList = new ArrayList<>();
-        bookRentList.forEach(bookRentDTO -> {
-          bookRentArrayList.add(new BookRentDTO(
-                  bookRentDTO.getBookId(),
-                  bookRentDTO.getCustomerId(),
-                  bookRentDTO.getQuantity()
-          ));
-        });
-         BookRentDTO bookRentDTO = new BookRentDTO(
-                cmbBookId.getValue(),
-                cmbCustomerId.getValue(),
-                Integer.parseInt(txtQuantity.getText())
-        );
+        boolean isRented = true;
+        for (BookRentDTO bookRentDTO : bookRentList) {
+            if (!bookRentalService.rentBook(bookRentDTO)) {
+                isRented = false;
+                break;
+            }
+        }
+        if (isRented) {
+            new Alert(Alert.AlertType.INFORMATION, "Book Rented Successfully ! ").show();
+            bookRentList.clear();
+            tblBooksOrder.setItems(FXCollections.observableArrayList(bookRentList));
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Failed to Rent Book ! ").show();
 
+        }
     }
 
     @FXML
@@ -141,6 +132,10 @@ public class BookRentController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBookId();
         loadCustomerId();
+
+        btnAddToCart.setDisable(false);
+        btnPlaceOrder.setDisable(false);
+        lblNetTotal.setVisible(true);
 
         colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
         colCustomerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
