@@ -7,7 +7,5 @@ import javafx.collections.ObservableList;
 import java.sql.ResultSet;
 
 public interface BookRentalService {
-    void AddBookRent(BookRentDTO bookRentDTO);
-    ObservableList<BookRentDTO> getAllUser();
-    void RentBook(BookRentDTO bookRentDTO);
+    boolean rentBook(BookRentDTO bookRentDTO);
 }
