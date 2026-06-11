@@ -20,7 +20,7 @@ public class ServiceFactory {
 
 
         public enum ServiceType {
-            BOOK, CUSTOMER, BOOK_RENT
+            BOOK, CUSTOMER, BOOK_RENTAL
         }
 
 
@@ -28,7 +28,7 @@ public class ServiceFactory {
             switch (serviceType) {
                 case BOOK:     return (T) new BookServiceImpl();
                 case CUSTOMER: return (T) new CustomerServiceImpl();
-                case BOOK_RENT: return (T) new BookRentalServiceImpl();
+                case BOOK_RENTAL: return (T) new BookRentalServiceImpl();
                 default: return null;
             }
         }
